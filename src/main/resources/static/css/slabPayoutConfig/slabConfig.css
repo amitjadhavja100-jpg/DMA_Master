@@ -1,0 +1,412 @@
+/*@charset "ISO-8859-1";*/
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+body{
+    background:#f4f4f4;
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
+}
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.main-container{
+    width:100%;
+    max-width:100%;
+    padding:15px;
+    margin:0;
+}
+
+.page-card{
+    background:#fff;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.pageHeading{
+    color: #8B1E1E;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+.top-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.title-bar,
+/*.title{*/
+
+.title{
+    text-align:center;
+    background:#b71c1c;
+    color:white;
+    padding:10px 15px;
+    font-weight:bold;
+    border-radius:5px;
+    margin-bottom:10px;
+}
+
+/* =====================================================
+   FILTERS
+===================================================== */
+
+.filter-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:flex-end;
+}
+
+.filter-row .form-group{
+    flex:1;
+    min-width:180px;
+}
+
+label{
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.form-control,
+.form-select{
+    height:40px;
+    font-size:14px;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.action-panel{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.action-panel select{
+    width:250px;
+}
+
+.red-btn{
+    background:#b71c1c;
+    color:white;
+    border:none;
+}
+
+.red-btn:hover{
+    background:#8e0000;
+    color:white;
+}
+
+.btn{
+    min-width:110px;
+}
+
+/* RESET BUTTON */
+ 
+.btn-secondary{
+ 
+    background:#0b2e8a !important;
+ 
+    border-color:#0b2e8a !important;
+ 
+    color:#fff !important;
+ 
+}
+ 
+.btn-secondary:hover{
+ 
+    background:#1e5eff !important;
+ 
+    border-color:#1e5eff !important;
+ 
+    color:#fff !important;
+ 
+}
+ 
+/* VIEW HISTORY BUTTON */
+ 
+.btn-primary{
+ 
+    background:#0b2e8a !important;
+ 
+    border-color:#0b2e8a !important;
+ 
+    color:#fff !important;
+ 
+}
+ 
+.btn-primary:hover{
+ 
+    background:#1e5eff !important;
+ 
+    border-color:#1e5eff !important;
+ 
+    color:#fff !important;
+ 
+}
+
+/* =====================================================
+   DPD BUTTONS
+===================================================== */
+
+.dpd-btn{
+    border:none;
+    padding:10px 20px;
+    background:#ddd;
+    margin-right:5px;
+    font-weight:bold;
+}
+
+.active-dpd{
+    background:#b71c1c;
+    color:white;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-wrapper,
+.table-responsive{
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+/*.table-responsive{
+    width:100%;
+    overflow-x:auto;
+}*/
+
+.table{
+    width:100%;
+    white-space:nowrap;
+}
+
+.table th{
+    text-align:center;
+    vertical-align:middle;
+}
+
+.table td{
+    text-align:center;
+    vertical-align:middle;
+}
+
+.red-header{
+    background:#b71c1c;
+    color:white;
+    font-weight:bold;
+}
+
+.sub-header{
+    background:#d32f2f;
+    color:white;
+}
+
+.payout-table{
+    table-layout:fixed;
+    width:100%;
+}
+
+.payout-table th,
+.payout-table td{
+    text-align:center;
+    vertical-align:middle;
+}
+
+#newRowSelect,
+#newColSelect{
+    height:40px;
+}
+
+.btn-success{
+    margin-top:0px;
+}
+
+/* =====================================================
+   INPUT INSIDE TABLE
+===================================================== */
+
+.table td input{
+    width:100%;
+    border:1px solid #ccc;
+    text-align:center;
+    padding:5px;
+}
+
+/* =====================================================
+   COMPARE SCREEN
+===================================================== */
+
+.changed{
+    background:yellow;
+    color:red;
+    font-weight:bold;
+}
+
+.compare-table{
+    width:100%;
+    table-layout:fixed;
+}
+
+.compare-table th{
+    text-align:center;
+    vertical-align:middle;
+    font-weight:bold;
+}
+
+.compare-table td{
+    text-align:center;
+    vertical-align:middle;
+}
+
+/* =====================================================
+   CHECKER SCREEN
+===================================================== */
+
+/*.pending-table{
+    min-width:1100px;
+}*/
+
+.pending-table{
+    width:100%;
+}
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.submenu-link{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.leftmenuitems{
+    width:22px;
+    text-align:center;
+}
+
+.menu-text{
+    white-space:nowrap;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:991px){
+
+    .filter-row{
+        flex-direction:column;
+    }
+
+    .filter-row .form-group{
+        width:100%;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .top-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+    
+    .main-container{
+    background:#fff;
+    border-radius:10px;
+    padding:20px;
+    margin:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+h2,
+h3{
+    margin-bottom:20px;
+    color:#333;
+}
+
+.title-bar{
+    text-align:center;
+    font-size:16px;
+}
+
+/* FINAL TABLE ALIGNMENT */
+
+table{
+    border-collapse: collapse;
+}
+
+table th,
+table td{
+    text-align:center !important;
+    vertical-align:middle !important;
+}
+
+.compare-table th,
+.compare-table td{
+    width:auto;
+}
+
+.table-responsive{
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+.compare-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.compare-header h1{
+
+    margin:0;
+}
+
+}
+#flowsPayoutTable tr.flows-footer-row td.flows-footer-label {
+    min-width: 180px;
+    max-width: 180px;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: normal;
+    vertical-align: middle !important;
+}
+
+
+/* Flows Compare screen */
+#pendingBody tr.flows-footer-row td.flows-footer-label,
+#approvedBody tr.flows-footer-row td.flows-footer-label {
+    min-width: 180px;
+    max-width: 180px;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: normal;
+    vertical-align: middle !important;
+}

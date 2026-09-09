@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG" monitorInterval="30"
+	xmlns="http://logging.apache.org/log4j/2.0/config">
+	<!-- Logging Properties -->
+	<Properties>
+		<Property name="LOG_PATTERN">%d{ISO8601} %-5p [%t] %c: %m%n</Property>
+		     <!-- <Property name="APP_LOG_ROOT">D:/logs</Property> -->
+		 <Property name="APP_LOG_ROOT">logs</Property>
+	</Properties>
+	<Appenders>
+		<!-- Console Appender -->
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+		</Console>
+		<!-- Rolling File Appender -->
+		<RollingFile name="RollingFile" fileName="${APP_LOG_ROOT}/DMA.log"
+			filePattern="${APP_LOG_ROOT}/DMA-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="2MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="9999999">
+				<Delete basePath="${APP_LOG_ROOT}" maxDepth="1">
+					<IfLastModified age="10d" />
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+		<!-- Asynchronous Appender -->
+		<Async name="AsyncAppender" bufferSize="1024">
+			<AppenderRef ref="RollingFile" />
+			<!-- <AppenderRef ref="Console" /> -->
+		</Async>
+	</Appenders>
+	<Loggers>
+		<Logger name="log" level="all" />
+		<Root level="all">
+			<AppenderRef ref="AsyncAppender" level="info" />
+			<AppenderRef ref="Console" level="info"/>
+		</Root>
+	</Loggers>
+</Configuration>

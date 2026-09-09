@@ -1,0 +1,399 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.icici.dma</groupId>
+	<artifactId>DMAPayoutMaster</artifactId>
+	<packaging>war</packaging>
+	<!-- <version>0.0.1-SNAPSHOT</version> <name>cmsweb Maven Webapp</name> 
+		<url>http://maven.apache.org</url> -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.1.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<!-- <maven.compiler.source>1.8</maven.compiler.source> <maven.compiler.target>1.8</maven.compiler.target> -->
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- <dependency> <groupId>com.microsoft.sqlserver</groupId> <artifactId>sqljdbc4</artifactId> 
+			<version>4.0</version> </dependency> -->
+
+		<!-- <dependency> <groupId>com.microsoft.sqlserver</groupId> <artifactId>mssql-jdbc</artifactId> 
+			<version>8.2.2.jre8</version> </dependency> -->
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- for DMA Payout -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.apache.logging.log4j</groupId> <artifactId>log4j-spring-boot</artifactId> 
+			</dependency> -->
+
+		<!-- log4j2 configuration has been enabled on 08-Feb-2022 - start -->
+		<!-- <dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jul</artifactId>
+		</dependency> -->
+		<!-- log4j2 configuration has been enabled on 08-Feb-2022 - end -->
+
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-security</artifactId> 
+			</dependency> <dependency> <groupId>org.springframework.security</groupId> 
+			<artifactId>spring-security-taglibs</artifactId> </dependency> -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-data-jpa</artifactId> 
+			</dependency> -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc8</artifactId> 
+			<version>19.3.0.0</version> </dependency> -->
+
+		<!-- <dependency> <groupId>ojdbc14</groupId> <artifactId>ojdbc14</artifactId> 
+			<version>1.0</version> </dependency> -->
+
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>19.3.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>4.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-mail</artifactId> 
+			</dependency> -->
+
+		<!-- <dependency> <groupId>org.apache.commons</groupId> <artifactId>commons-text</artifactId> 
+			<version>1.9</version> </dependency> <dependency> <groupId>org.apache.commons</groupId> 
+			<artifactId>commons-lang3</artifactId> </dependency> <dependency> <groupId>com.opencsv</groupId> 
+			<artifactId>opencsv</artifactId> <version>4.2</version> </dependency> <dependency> 
+			<groupId>net.sf.supercsv</groupId> <artifactId>super-csv</artifactId> <version>2.4.0</version> 
+			</dependency> <dependency> <groupId>org.apache.poi</groupId> <artifactId>poi</artifactId> 
+			<version>3.16</version> </dependency> <dependency> <groupId>org.apache.poi</groupId> 
+			<artifactId>poi-ooxml</artifactId> <version>3.16</version> </dependency> 
+			<dependency> <groupId>org.apache.poi</groupId> <artifactId>poi-ooxml-schemas</artifactId> 
+			<version>3.16</version> </dependency> -->
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>io.jsonwebtoken</groupId> <artifactId>jwt-api</artifactId> 
+			<version>0.11.2</version> </dependency> <dependency> <groupId>io.jsonwebtoken</groupId> 
+			<artifactId>jwt-impl</artifactId> <version>0.11.2</version> <scope>runtime</scope> 
+			</dependency> <dependency> <groupId>io.jsonwebtoken</groupId> <artifactId>jwt-jackson</artifactId> 
+			<version>0.11.2</version> <scope>runtime</scope> </dependency> -->
+
+		<!-- <dependency> <groupId>tiles-api</groupId> <artifactId>tiles-api</artifactId> 
+			<version>3.0.7</version> </dependency> <dependency> <groupId>tiles-autotag-core-runtime</groupId> 
+			<artifactId>tiles-autotag-core-runtime</artifactId> <version>1.2</version> 
+			</dependency> <dependency> <groupId>tiles-core</groupId> <artifactId>tiles-core</artifactId> 
+			<version>3.0.7</version> </dependency> <dependency> <groupId>tiles-jsp</groupId> 
+			<artifactId>tiles-jsp</artifactId> <version>3.0.7</version> </dependency> 
+			<dependency> <groupId>tiles-request-api</groupId> <artifactId>tiles-request-api</artifactId> 
+			<version>1.0.6</version> </dependency> <dependency> <groupId>tiles-request-jsp</groupId> 
+			<artifactId>tiles-request-jsp</artifactId> <version>1.0.6</version> </dependency> 
+			<dependency> <groupId>tiles-request-servlet</groupId> <artifactId>tiles-request-servlet</artifactId> 
+			<version>1.0.6</version> </dependency> <dependency> <groupId>tiles-servlet</groupId> 
+			<artifactId>tiles-servlet</artifactId> <version>3.0.7</version> </dependency> 
+			<dependency> <groupId>tiles-template</groupId> <artifactId>tiles-template</artifactId> 
+			<version>3.0.7</version> </dependency> <dependency> <groupId>commons-digester</groupId> 
+			<artifactId>commons-digester</artifactId> <version>2.1</version> </dependency> -->
+
+		<dependency>
+			<groupId>nl.bitwalker</groupId>
+			<artifactId>UserAgentUtils</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>com.infotech.cms.util</groupId> <artifactId>ssoutil</artifactId> 
+			<version>1.0</version> </dependency> -->
+
+		<!-- <dependency> <groupId>io.springfox</groupId> <artifactId>springfox-boot-starter</artifactId> 
+			<version>3.0.0</version> </dependency> <dependency> <groupId>io.springfox</groupId> 
+			<artifactId>springfox-swagger-ui</artifactId> <version>3.0.0</version> </dependency> -->
+
+		<!-- Start Swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-common</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-spring-web</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-spi</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>spring-plugin-core</artifactId>
+			<version>1.2.0.RELEASE</version>
+		</dependency>-->
+
+		<dependency>
+			<groupId>org.springframework.plugin</groupId>
+			<artifactId>spring-plugin-core</artifactId>
+			<version>1.2.0.RELEASE</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-core</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-schema</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>swagger-models</artifactId>
+			<version>1.5.20</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.5.20</version>
+		</dependency>-->
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-models</artifactId>
+			<version>1.5.20</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.5.20</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.monitorjbl</groupId>
+			<artifactId>xlsx-streamer</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.2</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-io</groupId>
+					<artifactId>commons-io</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- <dependency> <groupId>io.springfox</groupId> <artifactId>spring-plugin-metadata</artifactId> 
+			<version>1.2.0.RELEASE</version> </dependency> -->
+
+		<!-- <dependency> <groupId>com.google.collections</groupId> <artifactId>google-collections</artifactId> 
+			<version>1.0</version> </dependency> -->
+
+		<!-- <dependency> <groupId>com.google.guava</groupId> <artifactId>guava</artifactId> 
+			<version>27.0-jre</version> </dependency> -->
+
+		<!-- End Swagger -->
+
+
+		<!-- <dependency> <groupId>org.apache.logging.log4j</groupId> <artifactId>log4j-jul</artifactId> 
+			<version>2.11.1</version> <scope>runtime</scope> </dependency> -->
+
+		<!-- for SSH connection for DB server & for  file transfer app server to db server -->
+		<!-- <dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.55</version>
+		</dependency> -->	
+		
+	</dependencies>
+
+	<build>
+
+		<finalName>DMAPayoutVL</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-war-plugin</artifactId> 
+				<configuration> <failOnMissingWebXml>false</failOnMissingWebXml> <archive> 
+				<manifest> <addDefaultImplementationEntries>false</addDefaultImplementationEntries> 
+				</manifest> </archive> </configuration> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<!-- <version>2.14.1</version> -->
+				<configuration>
+					<skipTests>flase</skipTests>
+				</configuration>
+			</plugin>
+		</plugins>
+		<!-- <resources> <resource> <directory>src/main/resources</directory> <includes> 
+			<include>aes.al.js</include> <include>application.properties</include> <include>log4j2.properties</include> 
+			</includes> </resource> </resources> -->
+	</build>
+
+
+</project>
