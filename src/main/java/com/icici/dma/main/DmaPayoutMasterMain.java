@@ -27,6 +27,7 @@ public class DmaPayoutMasterMain extends SpringBootServletInitializer {
 		
 		//logger.info("====== MAIN CLASS LOG WORKING ========");
 
+		//
 		SpringApplication.run(DmaPayoutMasterMain.class, args);
 
 		System.out.println("====== DMA PAYOUT MASTER SERVICE STARTED SUCCESSFULLY ========");
